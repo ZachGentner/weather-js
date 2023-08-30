@@ -1,7 +1,6 @@
 // Code along project with tweaks, credit to Tyler Potts; URL: https://www.youtube.com/watch?v=n4dtwWgRueI 
 
 const api = {
-    // key: "afa3acb6f62f9d7626f0cdb3d04ea074",
     baseurl: "https://api.openweathermap.org/data/2.5/"
 }
 
