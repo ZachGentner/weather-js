@@ -1,7 +1,7 @@
 // Code along project with tweaks, credit to Tyler Potts; URL: https://www.youtube.com/watch?v=n4dtwWgRueI 
 
 const api = {
-    key: "afa3acb6f62f9d7626f0cdb3d04ea074",
+    // key: "afa3acb6f62f9d7626f0cdb3d04ea074",
     baseurl: "https://api.openweathermap.org/data/2.5/"
 }
 
@@ -11,13 +11,11 @@ searchbox.addEventListener('keypress', setQuery);
 function setQuery (e) {
     if (e.keyCode == 13) {
         getResults(searchbox.value);
-        // console.log(searchbox.value);
     }
 }
 
 function getResults(query) {
-    // console.log(`${api.baseurl}weather?q=${query}&units=imperial&appid=${api.key}`);
-    fetch(`${api.baseurl}weather?q=${query}&units=imperial&appid=${api.key}`) 
+    fetch(`${api.baseurl}weather?q=${query}&units=imperial&appid=${KEY}`) 
      .then(weather => {
         return weather.json();
      }).then(displayResults);
