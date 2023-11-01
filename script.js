@@ -1,8 +1,16 @@
 // Code along project with tweaks, credit to Tyler Potts; URL: https://www.youtube.com/watch?v=n4dtwWgRueI 
-
 const api = {
+    key: 'afa3acb6f62f9d7626f0cdb3d04ea074',
     baseurl: "https://api.openweathermap.org/data/2.5/"
 }
+
+window.addEventListener("load", () => { //On load, call the current weather for Detroit.
+    displayResults(getResults("Detroit"));
+
+    // displayResults(getResults(navigator.geolocation.getCurrentPosition( //Skeleton for loading user location weather.
+    //     success = (position) => {console.log(position);}
+    //     )));
+})
 
 const searchbox = document.querySelector('.search-box');
 searchbox.addEventListener('keypress', setQuery);
@@ -14,14 +22,13 @@ function setQuery (e) {
 }
 
 function getResults(query) {
-    fetch(`${api.baseurl}weather?q=${query}&units=imperial&appid=${KEY}`) 
+    fetch(`${api.baseurl}weather?q=${query}&units=imperial&appid=${api.key}`) 
      .then(weather => {
         return weather.json();
      }).then(displayResults);
 }
 
 function displayResults(weather) {
-    console.log(weather);
     let city = document.querySelector('.location .city');
     city.innerText = `${weather.name}, ${weather.sys.country}`;
     let now = new Date();
